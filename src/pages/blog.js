@@ -25,22 +25,15 @@ export default BlogIndex
 
 export const pageQuery = graphql`
   query BlogIndexQuery {
-    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
+    allContentfulBlogPost(sort: { fields: [date], order: DESC }) {
       nodes {
         title
         slug
-        publishDate(formatString: "MMMM Do, YYYY")
-        tags
-        heroImage {
-          gatsbyImageData(
-            layout: FULL_WIDTH
-            placeholder: BLURRED
-            width: 424
-            height: 212
-          )
-        }
+        date(formatString: "MMMM Do, YYYY")
+        keywords
+        heroImage
         description {
-          raw
+          description
         }
       }
     }
