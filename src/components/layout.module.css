@@ -1,0 +1,21 @@
+.container {
+  @apply flex flex-col mx-auto min-h-screen md:text-2xl;
+  max-width: var(--size-max-width);
+}
+
+.main {
+  @apply w-full mx-auto mb-8;
+}
+
+.asideHeader {
+  @apply text-gray-900 uppercase tracking-wide font-semibold mb-3 text-sm lg:text-xs;
+}
+
+.pagetitle {
+  @apply font-mono tracking-wide text-center relative mb-1 p-4;
+  font-variant: all-small-caps;
+}
+
+.pagecontent {
+  @apply mx-auto max-w-full md:max-w-5xl py-4;
+}

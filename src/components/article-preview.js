@@ -10,7 +10,7 @@ import * as styles from './article-preview.module.css'
 const ArticlePreview = ({ posts }) => {
   if (!posts) return null
   if (!Array.isArray(posts)) return null
-
+  console.log('article-preview', posts)
   return (
     <Container>
       <ul className={styles.articleList}>
@@ -18,7 +18,7 @@ const ArticlePreview = ({ posts }) => {
           return (
             <li key={post.slug}>
               <Link to={`/blog/${post.slug}`} className={styles.link}>
-                <GatsbyImage alt="" image={post.heroImage.gatsbyImageData} />
+                <GatsbyImage alt="" image={post.heroImage?.gatsbyImageData} />
                 <h2 className={styles.title}>{post.title}</h2>
               </Link>
               <div>

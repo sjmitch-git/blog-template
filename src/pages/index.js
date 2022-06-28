@@ -28,10 +28,10 @@ export const pageQuery = graphql`
         slug
         date(formatString: "MMMM Do, YYYY")
         keywords
-        heroImage
-        description {
-          description
+        heroImage {
+          gatsbyImageData
         }
+        description
       }
     }
   }

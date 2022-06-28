@@ -10,7 +10,7 @@ import ArticlePreview from '../components/article-preview'
 class BlogIndex extends React.Component {
   render() {
     const posts = get(this, 'props.data.allContentfulBlogPost.nodes')
-
+    console.log('blog.js', posts)
     return (
       <Layout location={this.props.location}>
         <Seo title="Blog" />
@@ -31,10 +31,10 @@ export const pageQuery = graphql`
         slug
         date(formatString: "MMMM Do, YYYY")
         keywords
-        heroImage
-        description {
-          description
+        heroImage {
+          gatsbyImageData
         }
+        description
       }
     }
   }

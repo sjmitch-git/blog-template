@@ -9,7 +9,7 @@ import readingTime from 'reading-time'
 
 import Seo from '../components/seo'
 import Layout from '../components/layout'
-// import Hero from '../components/hero'
+import Hero from '../components/hero'
 import Tags from '../components/tags'
 import * as styles from './blog-post.module.css'
 
@@ -20,9 +20,7 @@ class BlogPostTemplate extends React.Component {
     const next = get(this.props, 'data.next')
     /* const plainTextBody = documentToPlainTextString(JSON.parse(post.body.raw))
     const { minutes: timeToRead } = readingTime(plainTextBody) */
-    const body = post.bodyhtml.bodyhtml
 
-   console.log('BODY', body)
 
   /*   for (const key in body) {
       if (body.hasOwnProperty(key)) {
@@ -35,13 +33,13 @@ class BlogPostTemplate extends React.Component {
         <Seo
           title={post.title}
           description={post.description}
-          image={post.heroImage}
+        //  image={post.heroImage}
         />
-      {/*   <Hero
+        <Hero
           image={post.heroImage?.gatsbyImageData}
           title={post.title}
           content={post.description}
-        /> */}
+        />
         <div className={styles.container}>
           <span className={styles.meta}>
             {post.author?.name} &middot;{' '}
@@ -49,10 +47,10 @@ class BlogPostTemplate extends React.Component {
            {/*  {timeToRead} minute read */}
           </span>
           <div className={styles.article}>
-           {/*  <div className={styles.body}>
+            <div className={styles.body}>
               {post.body?.raw && renderRichText(post.body)}
-            </div> */}
-            <div dangerouslySetInnerHTML={{ __html: body }}></div>
+            </div>
+          {/*   <div id='body' dangerouslySetInnerHTML={{ __html: body }}></div> */}
             <Tags tags={post.keywords} />
             {(previous || next) && (
               <nav>
@@ -92,22 +90,17 @@ export const pageQuery = graphql`
     contentfulBlogPost(slug: { eq: $slug }) {
       slug
       title
-      description {
-        description
-      }
+      description
       date(formatString: "MMMM Do, YYYY")
       publishDate: date
-      heroImage
       body {
         raw
       }
-      bodyhtml {
-        bodyhtml
+      heroImage {
+        gatsbyImageData
       }
       keywords
-      description {
-        description
-      }
+      description
     }
     previous: contentfulBlogPost(slug: { eq: $previousPostSlug }) {
       slug

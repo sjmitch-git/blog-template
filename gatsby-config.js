@@ -36,10 +36,11 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: "Gatsby Contentful Starter",
-    description: "Official Contentful Gatsby Starter",
+    title: "Jam Pot",
+    description: "A blog by Stephen concerning Gatsby, React, TailwindCSS, GraphQL, and other front-end stuff.",
   },
   plugins: [
+    `gatsby-plugin-postcss`,
     "gatsby-transformer-sharp",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sharp",
